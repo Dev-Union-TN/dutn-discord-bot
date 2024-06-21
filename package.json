@@ -1,0 +1,31 @@
+{
+  "name": "du-discord-bot",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "deploy-commands": "ts-node deploy-commands.ts"
+  },
+  "private": true,
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.7",
+    "eslint": "8",
+    "eslint-config-universe": "^13.0.0",
+    "prettier": "^3.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  },
+  "eslintConfig": {
+    "extends": "universe"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "bracketSameLine": true
+  }
+}
