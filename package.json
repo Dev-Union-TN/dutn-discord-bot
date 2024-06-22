@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
+    "build": "tsc",
+    "start": "NODE_ENV=production&& node build/index.js",
     "dev": "ts-node src/index.ts",
     "deploy-commands": "ts-node deploy-commands.ts"
   },
   "private": true,
   "dependencies": {
-    "discord.js": "^14.15.3",
-    "dotenv": "^16.4.5"
+    "discord.js": "^14.15.3"
   },
   "devDependencies": {
     "@types/node": "^20.14.7",
+    "dotenv": "^16.4.5",
     "eslint": "8",
     "eslint-config-universe": "^13.0.0",
     "prettier": "^3.3.2",

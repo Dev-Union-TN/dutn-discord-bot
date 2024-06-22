@@ -1,9 +1,13 @@
 import { REST, Routes} from 'discord.js';
 import path from 'node:path';
 import fs from 'node:fs';
-import { token, clientId, guildId } from './config.json';
+import { Command } from './src/types';
 
-const commands = [];
+const token = process.env.DISCORD_TOKEN as string;
+const clientId = process.env.DISCORD_CLIENT_ID as string;
+const guildId = process.env.DISCORD_GUILD_ID as string;
+
+const commands = [] as Command[];
 // Grab all the command folders from the commands directory you created earlier
 const foldersPath = path.join(__dirname, 'src/commands');
 const commandFolders = fs.readdirSync(foldersPath);

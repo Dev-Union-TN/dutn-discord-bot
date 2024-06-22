@@ -2,7 +2,9 @@ import { Collection, Events, GatewayIntentBits } from 'discord.js';
 import path from 'node:path';
 import fs from 'node:fs';
 import { TsClient } from './types';
-import { token } from '../config.json';
+
+const token = process.env.DISCORD_TOKEN;
+const isProduction = process.env.NODE_ENV === 'production';
 
 // based on guide : https://discordjs.guide/creating-your-bot/main-file.html#running-your-application
 const client = new TsClient({ intents: [GatewayIntentBits.Guilds] });
@@ -14,7 +16,7 @@ const commandFolders = fs.readdirSync(foldersPath);
 
 for (const folder of commandFolders) {
   const commandsPath = path.join(foldersPath, folder);
-  const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.ts'));
+  const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(`.${isProduction ? 'js': 'ts'}`));
 
   for (const file of commandFiles) {
     const filePath = path.join(commandsPath, file);
